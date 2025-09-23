@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tourist Information</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f8f9fa;
+      color: #333;
+    }
+    header {
+      background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e') no-repeat center center/cover;
+      height: 250px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+    }
+    header h1 {
+      font-size: 3em;
+      margin: 0;
+    }
+    .search-bar {
+      text-align: center;
+      margin: 20px;
+    }
+    .search-bar input {
+      width: 60%;
+      padding: 12px 15px;
+      font-size: 1em;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      outline: none;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      padding: 30px;
+    }
+    .card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+    .card:hover {
+      transform: scale(1.03);
+    }
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .card-content {
+      padding: 15px;
+    }
+    .card-content h2 {
+      margin: 0 0 10px;
+      color: #007BFF;
+    }
+    .card-content p {
+      font-size: 0.95em;
+      line-height: 1.5;
+      color: #555;
+    }
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: #007BFF;
+      color: white;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Explore Beautiful Destinations</h1>
+  </header>
+
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Search destinations... (e.g., Goa, Taj Mahal)">
+  </div>
+
+  <div class="container" id="cardContainer">
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1587502536263-3e62e8c51a07" alt="Taj Mahal">
+      <div class="card-content">
+        <h2>Taj Mahal, Agra</h2>
+        <p>The Taj Mahal is one of the Seven Wonders of the World. This white marble mausoleum is a UNESCO World Heritage site and a symbol of eternal love.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1518684079-0e0bf0caadf3" alt="Kerala Backwaters">
+      <div class="card-content">
+        <h2>Kerala Backwaters</h2>
+        <p>Experience serene boat rides through the backwaters of Kerala. The lush greenery and peaceful waters make it a must-visit destination.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1524492449090-1a065f3a34a4" alt="Jaipur Palace">
+      <div class="card-content">
+        <h2>Jaipur, Rajasthan</h2>
+        <p>Known as the Pink City, Jaipur is famous for its palaces, forts, and vibrant culture. A true blend of history and tradition.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1505761671935-60b3a7427bad" alt="Goa Beach">
+      <div class="card-content">
+        <h2>Goa Beaches</h2>
+        <p>Relax on the golden sands and enjoy the vibrant nightlife of Goa. The beaches are a paradise for both relaxation and adventure.</p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Incredible India | Designed for Travelers
+  </footer>
+
+  <script>
+    const searchInput = document.getElementById("searchInput");
+    const cards = document.querySelectorAll(".card");
+
+    searchInput.addEventListener("keyup", function() {
+      const filter = searchInput.value.toLowerCase();
+      cards.forEach(card => {
+        const title = card.querySelector("h2").textContent.toLowerCase();
+        card.style.display = title.includes(filter) ? "" : "none";
+      });
+    });
+  </script>
+  <p><i><b>Created by Naresh A</b></i></p>
+</body>
+</html>
